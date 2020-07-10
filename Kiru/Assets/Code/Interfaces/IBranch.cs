@@ -6,15 +6,18 @@ namespace Kiru {
 	public interface IBranch {
 		Transform GetTransform();
 
+		Transform[] GetSlots();
+
 		IBranch[] GetChildren();
 
 		IBranch GetParent();
 
-		IBranchValidate GetGrothValidator();
+		IGrothValidate GetGrothValidator();
 
-		IBranchValidate GetCutValidator();
+		ICutValidate GetCutValidator();
 
-		void Grow(IBranchFactory factory);
+		// may neet do work in bredfirstsearch
+		bool Grow(IBranchFactory factory);
 
 		bool Cut();
 	}

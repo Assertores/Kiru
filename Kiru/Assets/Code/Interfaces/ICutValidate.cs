@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public interface IBranchValidate {
+	public interface ICutValidate {
 		bool Validate(IBranch element);
 	}
 }
