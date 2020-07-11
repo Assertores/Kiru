@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 7310521585339572183}
   _growAnimation: {fileID: 862258231939627487}
   _cutAnimatin: {fileID: 650516842751390332}
-  _cutLiveTime: 10
+  _cutLiveTime: 4
 --- !u!111 &862258231939627487
 Animation:
   m_ObjectHideFlags: 0
