@@ -33,7 +33,8 @@ namespace Kiru {
 			_currentGrowCount += val;
 		}
 
-		public override bool Cut() {
+
+		public override bool DoCut() {
 			Debug.LogWarning("trunk was asked to be cut");
 			return false;
 		}

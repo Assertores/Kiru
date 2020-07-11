@@ -8,6 +8,7 @@ namespace Kiru {
 		private IBranch _parent = null;
 		private IGrothValidate _grothValidator = null;
 		private ICutValidate _cutValidator = null;
+		private bool _isCut = false;
 
 		public virtual void Init() { }
 
@@ -16,7 +17,19 @@ namespace Kiru {
 		// may neet do work in bredfirstsearch
 		public abstract bool Grow(IBranchFactory factory);
 
-		public abstract bool Cut();
+		public bool Cut() {
+			if(_isCut)
+				return false;
+			if(!DoCut())
+				return false;
+			_isCut = true;
+
+			_parent = null;
+
+			return true;
+		}
+
+		public abstract bool DoCut();
 
 		public Transform GetTransform() {
 			return transform;
@@ -38,6 +51,8 @@ namespace Kiru {
 		}
 
 		public IBranch GetParent() {
+			if(_isCut)
+				return null;
 			if(_parent != null)
 				return _parent;
 

@@ -6,14 +6,12 @@ namespace Kiru {
 	public class Branch : IBranch {
 
 		[SerializeField] Transform[] _slots = null;
-		[SerializeField] Animation _animation = null;
+		[SerializeField] Animation _growAnimation = null;
+		[SerializeField] Animation _cutAnimatin = null;
 		[SerializeField] float _cutLiveTime = 10;
 		bool _isActive = false;
 
-		public override bool Cut() {
-			if(!_isActive)
-				return false;
-
+		public override bool DoCut() {
 			if(!GetCutValidator().Validate(this))
 				return false;
 
@@ -21,10 +19,12 @@ namespace Kiru {
 			//TODO: cut stuff
 			var rb = gameObject.AddComponent<Rigidbody>();
 
+			if(_cutAnimatin) {
+				_cutAnimatin.Play();
+			}
+
 			StartCoroutine(IEDelayed(_cutLiveTime, () => { Destroy(gameObject); }));
-
 			_isActive = false;
-
 			return true;
 		}
 
@@ -59,9 +59,13 @@ namespace Kiru {
 		}
 
 		public override void Init() {
+			if(_growAnimation == null) {
+				_isActive = true;
+				return;
+			}
 			_isActive = false;
-			_animation.Play();
-			StartCoroutine(IEDelayed(_animation.clip.length, () => { _isActive = true; }));
+			_growAnimation.Play();
+			StartCoroutine(IEDelayed(_growAnimation.clip.length, () => { _isActive = true; }));
 		}
 	}
 }
