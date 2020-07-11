@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace AsserTOOLres {
 	public class ActivateObjectsOnStart : MonoBehaviour {
-		[SerializeField] GameObject[] activeObjects;
-		[SerializeField] GameObject[] disabledObjects;
+		[SerializeField] GameObject[] activeObjects = null;
+		[SerializeField] GameObject[] disabledObjects = null;
 		void Start() {
 			foreach(var it in activeObjects) {
 				it.SetActive(true);

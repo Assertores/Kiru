@@ -26,8 +26,12 @@ namespace Kiru {
 				clips = GameData.s_instance.data.music[modeIndex].clips;
 				break;
 			}
+			if(clips == null)
+				return;
+			if(clips.Length <= 0)
+				return;
 
-			_target.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+			_target.PlayOneShot(clips[Random.Range(0, clips.Length - 1)]);
 		}
 	}
 }

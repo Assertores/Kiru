@@ -979,7 +979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 104.786255, y: -38.999878}
+  m_AnchoredPosition: {x: 104.78711, y: -39}
   m_SizeDelta: {x: 185.1, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &698850958241998472
@@ -2321,7 +2321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.8999939, y: -3.5999985}
+  m_AnchoredPosition: {x: 1.8999023, y: -3.5999985}
   m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2470860918911414711
@@ -2601,6 +2601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8283945207252531630}
+  - component: {fileID: 401059628876737503}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2631,6 +2632,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &401059628876737503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506267808952921156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53ac42e2a71c04fa119cab1c9d4930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: a57f9814af75da24ca3381bf31fb4c89, type: 2}
+  _master: {fileID: 0}
+  _music: {fileID: 752379979867730841}
+  _sfx: {fileID: 5954108344518284945}
 --- !u!1 &3564878919840388443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3170,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8521957783309860396}
   - component: {fileID: 5954108344518284945}
-  - component: {fileID: 7459696095003531257}
   m_Layer: 5
   m_Name: SFX
   m_TagString: Untagged
@@ -3234,30 +3250,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7459696095003531257}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 401059628876737503}
+        m_MethodName: ChangeEffectsVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7459696095003531257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4885854127212098807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb53ac42e2a71c04fa119cab1c9d4930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p_mixer: {fileID: 0}
 --- !u!1 &5036554632556016667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,7 +3915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 127960335007922004}
   - component: {fileID: 752379979867730841}
-  - component: {fileID: 5263529567187965987}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -3993,9 +3995,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5263529567187965987}
+      - m_Target: {fileID: 401059628876737503}
         m_MethodName: ChangeMusicVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4004,19 +4006,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5263529567187965987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696826263000502325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb53ac42e2a71c04fa119cab1c9d4930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p_mixer: {fileID: 0}
 --- !u!1 &6959790946176414093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,7 +4745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a68d69714b6bf4458eca518faf295b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 3506267808952921156}
 --- !u!1 &7565739571917038213
 GameObject:
   m_ObjectHideFlags: 0

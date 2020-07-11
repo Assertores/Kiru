@@ -2,21 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace Kiru {
 	public class VolumeControler : MonoBehaviour {
-		[SerializeField] AudioMixer p_mixer;
+		[SerializeField] AudioMixer _mixer = null;
 
-        public void ChangeMasterVolume(float value) {
-            p_mixer.SetFloat("Master", Mathf.Lerp(-30, 20, value));
-        }
+		[SerializeField] Slider _master = null;
+		[SerializeField] Slider _music = null;
+		[SerializeField] Slider _sfx = null;
 
-        public void ChangeMusicVolume(float value) {
-            p_mixer.SetFloat("Music", Mathf.Lerp(-30, 20, value));
-        }
+		private void Awake() {
+			float tmp;
 
-        public void ChangeEffectsVolume(float value) {
-            p_mixer.SetFloat("SFX", Mathf.Lerp(-30, 20, value));
-        }
-    }
+			if(_master) {
+				_mixer.GetFloat("Master", out tmp);
+				_master.value = Mathf.InverseLerp(-30, 20, tmp);
+			}
+			if(_music) {
+				_mixer.GetFloat("Music", out tmp);
+				_music.value = Mathf.InverseLerp(-30, 20, tmp);
+			}
+			if(_sfx) {
+				_mixer.GetFloat("SFX", out tmp);
+				_sfx.value = Mathf.InverseLerp(-30, 20, tmp);
+			}
+		}
+
+		public void ChangeMasterVolume(float value) {
+			_mixer.SetFloat("Master", Mathf.Lerp(-30, 20, value));
+		}
+
+		public void ChangeMusicVolume(float value) {
+			_mixer.SetFloat("Music", Mathf.Lerp(-30, 20, value));
+		}
+
+		public void ChangeEffectsVolume(float value) {
+			_mixer.SetFloat("SFX", Mathf.Lerp(-30, 20, value));
+		}
+	}
 }
