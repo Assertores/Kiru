@@ -20,7 +20,7 @@ namespace Kiru {
 		}
 
 		void Print() {
-			_textField.text = GameData.s_instance.points.ToString("00.000");
+			_textField.text = GameData.s_instance.points.ToString("000");
 		}
 	}
 }

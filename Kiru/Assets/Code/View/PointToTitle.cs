@@ -6,7 +6,7 @@ using TMPro;
 namespace Kiru {
 	public class PointToTitle : MonoBehaviour {
 
-		[SerializeField] TextMeshProUGUI _textField = null;
+		[SerializeField] TextMeshProUGUI[] _textField = null;
 		[System.Serializable]
 		struct Title {
 			public string name;
@@ -35,7 +35,9 @@ namespace Kiru {
 				currentTitleIndex++;
 			}
 
-			_textField.text = _titles[currentTitleIndex].name;
+			foreach(var it in _textField) {
+				it.text = _titles[currentTitleIndex].name;
+			}
 		}
 	}
 }
