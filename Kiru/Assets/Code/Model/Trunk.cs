@@ -8,8 +8,7 @@ namespace Kiru {
 
 		[SerializeField] ICutValidate __cutValidator = null;
 		[SerializeField] IGrothValidate __grothValidator = null;
-		[SerializeField] IBranchFactory _factoryObj = null;
-		IBranchFactory _factory = null;
+		[SerializeField] IBranchFactory _factory = null;
 
 		[SerializeField] Transform[] _slots = null;
 		[SerializeField] AnimationCurve _growCurve = null;

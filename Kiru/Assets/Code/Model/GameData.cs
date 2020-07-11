@@ -6,8 +6,8 @@ using AsserTOOLres;
 namespace Kiru {
 	public class GameData : Singleton<GameData> {
 
-		System.Action OnIsAliveChange = null;
-		public bool _isAlive = true;
+		public System.Action OnIsAliveChange = null;
+		bool _isAlive = true;
 		public bool isAlive { get {
 				return _isAlive;
 			} set {
@@ -18,9 +18,8 @@ namespace Kiru {
 			}
 		}
 
-		System.Action OnBranchCountChange = null;
-
-		public int _branchCount = 0;
+		public System.Action OnBranchCountChange = null;
+		int _branchCount = 0;
 		public int branchCount {
 			get {
 				return _branchCount;
@@ -35,9 +34,8 @@ namespace Kiru {
 			}
 		}
 
-		System.Action OnPointsChange = null;
-
-		public float _points = 0;
+		public System.Action OnPointsChange = null;
+		float _points = 0;
 		public float points {
 			get {
 				return _points;
