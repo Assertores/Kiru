@@ -7,6 +7,7 @@ namespace Kiru {
 
 		[SerializeField] Transform[] _slots = null;
 		[SerializeField] Animation _animation = null;
+		[SerializeField] float _cutLiveTime = 10;
 		bool _isActive = false;
 
 		public override bool Cut() {
@@ -16,8 +17,13 @@ namespace Kiru {
 			if(!GetCutValidator().Validate(this))
 				return false;
 
+			transform.parent = transform.root;
 			//TODO: cut stuff
-			Destroy(gameObject);
+			var rb = gameObject.AddComponent<Rigidbody>();
+
+			StartCoroutine(IEDelayed(_cutLiveTime, () => { Destroy(gameObject); }));
+
+			_isActive = false;
 
 			return true;
 		}

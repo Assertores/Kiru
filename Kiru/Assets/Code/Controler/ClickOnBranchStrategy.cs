@@ -9,9 +9,7 @@ namespace Kiru {
 			if(element == null)
 				return false;
 
-			element.Cut();
-
-			return true;
+			return element.Cut();
 		}
 	}
 }
