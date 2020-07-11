@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Kiru {
 	public abstract class IBranch : MonoBehaviour {
 
-		private IBranch _parent;
-		private IGrothValidate _grothValidator;
-		private ICutValidate _cutValidator;
+		private IBranch _parent = null;
+		private IGrothValidate _grothValidator = null;
+		private ICutValidate _cutValidator = null;
 
 		public virtual void Init() { }
 

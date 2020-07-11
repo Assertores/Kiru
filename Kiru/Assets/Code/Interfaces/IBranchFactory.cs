@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public interface IBranchFactory {
-		IBranch CreateBranch();
+
+	[CreateAssetMenu(fileName = "IBranchFactory", menuName = "Game/IBranchFactory/IBranchFactory")]
+	public abstract class IBranchFactory : ScriptableObject {
+		public abstract IBranch CreateBranch();
 	}
 }

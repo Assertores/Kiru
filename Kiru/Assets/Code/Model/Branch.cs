@@ -5,12 +5,8 @@ using UnityEngine;
 namespace Kiru {
 	public class Branch : IBranch {
 
-		[SerializeField] Transform[] _slots;
-		[SerializeField] Animation _animation;
-
-		IBranch _parent = null;
-		ICutValidate _cutValidator = null;
-		IGrothValidate _grothValidator = null;
+		[SerializeField] Transform[] _slots = null;
+		[SerializeField] Animation _animation = null;
 		bool _isActive = false;
 
 		public override bool Cut() {
@@ -22,8 +18,6 @@ namespace Kiru {
 
 			//TODO: cut stuff
 			Destroy(gameObject);
-
-			_parent = null;
 
 			return true;
 		}

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Kiru {
 	[CreateAssetMenu(fileName = "BranchArrayFactory", menuName = "Game/IBranchFactory/BranchArrayFactory")]
-	public class BranchArrayFactory : ScriptableObject, IBranchFactory {
+	public class BranchArrayFactory : IBranchFactory {
 
-		[SerializeField] GameObject[] _branches;
+		[SerializeField] GameObject[] _branches = null;
 
-		public IBranch CreateBranch() {
+		public override IBranch CreateBranch() {
 			GameObject element = Instantiate(_branches[Random.Range(0, _branches.Length - 1)]);
 			IBranch ret = element.GetComponent<IBranch>();
 			if(ret == null) {

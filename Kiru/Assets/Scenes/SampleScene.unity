@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f966013f81f6644b2e86e9b2ddc545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cutValidator: {fileID: 1171130282}
-  _grothValidator: {fileID: 1171130280}
+  __cutValidator: {fileID: 1171130282}
+  __grothValidator: {fileID: 1171130281}
   _factoryObj: {fileID: 11400000, guid: ec060e90f896d2d40b54ec26896ff4f2, type: 2}
   _game: {fileID: 1171130283}
   _slots:

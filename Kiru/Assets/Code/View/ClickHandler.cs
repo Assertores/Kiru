@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Kiru {
 	public class ClickHandler : MonoBehaviour {
-		[SerializeField] OnClickStrategy[] _strategys;
+		[SerializeField] OnClickStrategy[] _strategys = null;
 
 		void Update() {
 			if(Input.GetMouseButtonDown(0)) {

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Kiru {
 	public class RotateCamera : MonoBehaviour {
 
-		[SerializeField] float _speed;
+		[SerializeField] float _speed = 50;
 
 		void Update() {
 			transform.Rotate(Vector3.up, -Input.GetAxis("Horizontal") * _speed * Time.deltaTime);

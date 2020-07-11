@@ -6,14 +6,14 @@ namespace Kiru {
 	public class Trunk : IBranch {
 
 
-		[SerializeField] ICutValidate _cutValidator = null;
-		[SerializeField] IGrothValidate _grothValidator = null;
-		[SerializeField] ScriptableObject _factoryObj;
+		[SerializeField] ICutValidate __cutValidator = null;
+		[SerializeField] IGrothValidate __grothValidator = null;
+		[SerializeField] ScriptableObject _factoryObj = null;
 		IBranchFactory _factory = null;
-		[SerializeField] GameData _game;
+		[SerializeField] GameData _game = null;
 
-		[SerializeField] Transform[] _slots;
-		[SerializeField] AnimationCurve _growCurve;
+		[SerializeField] Transform[] _slots = null;
+		[SerializeField] AnimationCurve _growCurve = null;
 		int _currentGrowCount = 0;
 		float _integratedGrowValue = 0;
 
@@ -71,11 +71,11 @@ namespace Kiru {
 		}
 
 		public override IGrothValidate GetGrothValidator() {
-			return _grothValidator;
+			return __grothValidator;
 		}
 
 		public override ICutValidate GetCutValidator() {
-			return _cutValidator;
+			return __cutValidator;
 		}
 	}
 }
