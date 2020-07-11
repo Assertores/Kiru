@@ -32,6 +32,8 @@ namespace Kiru {
 
 		public abstract bool DoCut();
 
+		public abstract void Remove();
+
 		public Transform GetTransform() {
 			return transform;
 		}

@@ -15,16 +15,7 @@ namespace Kiru {
 			if(!GetCutValidator().Validate(this))
 				return false;
 
-			transform.parent = transform.root;
-			//TODO: cut stuff
-			var rb = gameObject.AddComponent<Rigidbody>();
-
-			if(_cutAnimatin) {
-				_cutAnimatin.Play();
-			}
-
-			StartCoroutine(IEDelayed(_cutLiveTime, () => { Destroy(gameObject); }));
-			_isActive = false;
+			FallOf();
 			return true;
 		}
 
@@ -66,6 +57,26 @@ namespace Kiru {
 			_isActive = false;
 			_growAnimation.Play();
 			StartCoroutine(IEDelayed(_growAnimation.clip.length, () => { _isActive = true; }));
+		}
+
+		public override void Remove() {
+			foreach(var it in GetChildren()) {
+				it.Remove();
+			}
+
+			FallOf();
+		}
+
+		void FallOf() {
+			transform.parent = transform.root;
+			var rb = gameObject.AddComponent<Rigidbody>();
+
+			if(_cutAnimatin) {
+				_cutAnimatin.Play();
+			}
+
+			StartCoroutine(IEDelayed(Random.Range(_cutLiveTime - 1, _cutLiveTime + 1), () => { Destroy(gameObject); }));
+			_isActive = false;
 		}
 	}
 }

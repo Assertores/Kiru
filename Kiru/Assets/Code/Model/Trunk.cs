@@ -15,11 +15,24 @@ namespace Kiru {
 		int _currentGrowCount = 0;
 		float _integratedGrowValue = 0;
 
+		float _startTime = 0;
+
+		private void Start() {
+			GameData.s_instance.OnIsAliveChange += OnStart;
+		}
+
+		private void OnDestroy() {
+			if(!GameData.Exists())
+				return;
+
+			GameData.s_instance.OnIsAliveChange -= OnStart;
+		}
+
 		private void FixedUpdate() {
 			if(!GameData.s_instance.isAlive)
 				return;
 
-			_integratedGrowValue += _growCurve.Evaluate(Time.timeSinceLevelLoad) * Time.fixedDeltaTime;
+			_integratedGrowValue += _growCurve.Evaluate(Time.timeSinceLevelLoad - _startTime) * Time.fixedDeltaTime;
 			var val = Mathf.RoundToInt(_integratedGrowValue) - _currentGrowCount;
 			for(int i = 0; i < val; i++) {
 				Grow(_factory);
@@ -27,6 +40,21 @@ namespace Kiru {
 			_currentGrowCount += val;
 		}
 
+		void OnStart() {
+			if(!GameData.s_instance.isAlive)
+				return;
+
+			_startTime = Time.timeSinceLevelLoad;
+
+			Remove();
+		}
+
+		public override void Remove() {
+			var branches = GetChildren();
+			foreach(var it in branches) {
+				it.Remove();
+			}
+		}
 
 		public override bool DoCut() {
 			Debug.LogWarning("trunk was asked to be cut");
