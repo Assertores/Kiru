@@ -8,7 +8,11 @@ namespace Kiru {
 		[SerializeField] int _maxCount = 50;
 
 		public override bool Validate(IBranch element, Transform slot) {
-			return GameData.s_instance.branchCount < _maxCount;
+			if(GameData.s_instance.branchCount >= _maxCount) {
+				GameData.s_instance.isAlive = false;
+				return false;
+			}
+			return true;
 		}
 	}
 }

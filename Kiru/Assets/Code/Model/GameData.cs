@@ -7,7 +7,7 @@ namespace Kiru {
 	public class GameData : Singleton<GameData> {
 
 		public System.Action OnIsAliveChange = null;
-		bool _isAlive = true;
+		bool _isAlive = false;
 		public bool isAlive { get {
 				return _isAlive;
 			} set {
@@ -48,6 +48,11 @@ namespace Kiru {
 					OnPointsChange?.Invoke();
 				}
 			}
+		}
+
+		public void MyReset() {
+			branchCount = 0;
+			points = 0;
 		}
 	}
 }

@@ -7,6 +7,9 @@ namespace Kiru {
 		[SerializeField] OnClickStrategy[] _strategys = null;
 
 		void Update() {
+			if(!GameData.s_instance.isAlive)
+				return;
+
 			if(Input.GetMouseButtonDown(0)) {
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),
 						out RaycastHit hit)) {

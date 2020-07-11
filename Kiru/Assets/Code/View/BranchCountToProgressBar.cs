@@ -6,8 +6,8 @@ using UnityEngine.UI;
 namespace Kiru {
 	public class BranchCountToProgressBar : MonoBehaviour {
 
-		[SerializeField] Slider _slider;
-		[SerializeField] Image _fill;
+		[SerializeField] Slider _slider = null;
+		[SerializeField] Image _fill = null;
 		[SerializeField] int _maxCount = 50;
 		[SerializeField] int _lowerEdge = 20;
 		[SerializeField] int _upperEdghe = 70;

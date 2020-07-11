@@ -6,7 +6,7 @@ using TMPro;
 namespace Kiru {
 	public class PointToText : MonoBehaviour {
 
-		[SerializeField] TextMeshProUGUI _textField;
+		[SerializeField] TextMeshProUGUI _textField = null;
 
 		void Start() {
 			GameData.s_instance.OnPointsChange += Print;

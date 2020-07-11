@@ -103,7 +103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7332371696606998613}
   - component: {fileID: 7332371696606998612}
-  - component: {fileID: 7332371696606998617}
   - component: {fileID: 7332371696606998616}
   - component: {fileID: 7332371696606998619}
   - component: {fileID: 7332371696606998618}
@@ -148,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __cutValidator: {fileID: 7332371696606998616}
-  __grothValidator: {fileID: 7332371696606998619}
+  __grothValidator: {fileID: 7332371696606998622}
   _factory: {fileID: 11400000, guid: ec060e90f896d2d40b54ec26896ff4f2, type: 2}
   _slots:
   - {fileID: 7332371696619646377}
@@ -178,18 +177,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7332371696606998617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332371696606998615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734d2221171896241955101c70683971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7332371696606998616
 MonoBehaviour:
   m_ObjectHideFlags: 0

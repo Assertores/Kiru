@@ -9,6 +9,9 @@ namespace Kiru {
 		[SerializeField] int _maxBranchCount = 50;
 
 		void FixedUpdate() {
+			if(!GameData.s_instance.isAlive)
+				return;
+
 			GameData.s_instance.points += _branchkountToPoints.Evaluate((float)GameData.s_instance.branchCount/_maxBranchCount) * Time.fixedDeltaTime;
 		}
 	}
