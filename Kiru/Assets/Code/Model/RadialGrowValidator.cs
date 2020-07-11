@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public class GameGrowValidator : IGrothValidate {
+	public class RadialGrowValidator : IGrothValidate {
 
 		[SerializeField] Transform _sphere = null;
 		[SerializeField] float _radius = 3;

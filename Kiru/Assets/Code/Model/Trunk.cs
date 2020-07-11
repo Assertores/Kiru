@@ -8,17 +8,13 @@ namespace Kiru {
 
 		[SerializeField] ICutValidate __cutValidator = null;
 		[SerializeField] IGrothValidate __grothValidator = null;
-		[SerializeField] ScriptableObject _factoryObj = null;
+		[SerializeField] IBranchFactory _factoryObj = null;
 		IBranchFactory _factory = null;
 
 		[SerializeField] Transform[] _slots = null;
 		[SerializeField] AnimationCurve _growCurve = null;
 		int _currentGrowCount = 0;
 		float _integratedGrowValue = 0;
-
-		private void Start() {
-			_factory = _factoryObj as IBranchFactory;
-		}
 
 		private void FixedUpdate() {
 			if(!GameData.s_instance.isAlive)
