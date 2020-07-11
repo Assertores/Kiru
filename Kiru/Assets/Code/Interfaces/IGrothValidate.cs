@@ -5,6 +5,6 @@ using UnityEngine;
 namespace Kiru {
 	public interface IGrothValidate {
 
-		Transform Validate(IBranch element);
+		bool Validate(IBranch element, Transform slot);
 	}
 }

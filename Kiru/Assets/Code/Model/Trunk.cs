@@ -6,16 +6,18 @@ namespace Kiru {
 	public class Trunk : MonoBehaviour, IBranch {
 
 
-		[SerializeField] ScriptableObject _cutValidatorObj;
+		[SerializeField] MonoBehaviour _cutValidatorObj;
 		ICutValidate _cutValidator = null;
-		[SerializeField] ScriptableObject _grothValidatorObj;
+		[SerializeField] MonoBehaviour _grothValidatorObj;
 		IGrothValidate _grothValidator = null;
 		[SerializeField] ScriptableObject _factoryObj;
 		IBranchFactory _factory = null;
+		[SerializeField] GameData _game;
 
 		[SerializeField] Transform[] _slots;
 		[SerializeField] AnimationCurve _growCurve;
 		int _currentGrowCount = 0;
+		float _integratedGrowValue = 0;
 
 		private void Start() {
 			_cutValidator = _cutValidatorObj as ICutValidate;
@@ -24,11 +26,15 @@ namespace Kiru {
 		}
 
 		private void FixedUpdate() {
-			var val = Mathf.RoundToInt(_growCurve.Evaluate(Time.timeSinceLevelLoad));
-			for(int i = 0; i < val-_currentGrowCount; i++) {
+			if(!_game.isAlive)
+				return;
+
+			_integratedGrowValue += _growCurve.Evaluate(Time.timeSinceLevelLoad) * Time.fixedDeltaTime;
+			var val = Mathf.RoundToInt(_integratedGrowValue) - _currentGrowCount;
+			for(int i = 0; i < val; i++) {
 				Grow(_factory);
 			}
-			_currentGrowCount = val;
+			_currentGrowCount += val;
 		}
 
 		public bool Cut() {
@@ -77,27 +83,42 @@ namespace Kiru {
 		}
 
 		public bool Grow(IBranchFactory factory) {
-			var childs = GetChildren();
+			bool hasGrowen = false;
+			for(int i = 0; !hasGrowen && i < 100; i++) {
+				var slot = GetRandomSlot();
+				var branch = GetBranchFromSlot(slot);
 
-			Transform slot = null;
-			for(int i = 0; i < 100 && (slot = GetGrothValidator().Validate(this)) == null; i++) {
-				if(childs.Length > 0 && childs[Random.Range(0, childs.Length)].Grow(factory))
-					return true;
+				if(branch != null) {
+					hasGrowen = branch.Grow(factory);
+					continue;
+				}
+				if(!GetGrothValidator().Validate(this, slot))
+					continue;
+
+				var newBranch = factory.CreateBranch();
+				var nBTrans = newBranch.GetTransform();
+
+				nBTrans.parent = slot;
+				nBTrans.localPosition = Vector3.zero;
+				nBTrans.localRotation = Quaternion.identity;
+
+				newBranch.Init();
+
+				hasGrowen = true;
 			}
-			if(slot == null) {
-				return false;
-			}
 
-			var newBranch = factory.CreateBranch();
-			var nBTrans = newBranch.GetTransform();
+			return hasGrowen;
+		}
 
-			nBTrans.parent = slot;
-			nBTrans.localPosition = Vector3.zero;
-			nBTrans.localRotation = Quaternion.identity;
+		Transform GetRandomSlot() {
+			var slots = GetSlots();
+			return slots[Random.Range(0, slots.Length)];
+		}
 
-			newBranch.Init();
-
-			return true;
+		IBranch GetBranchFromSlot(Transform slot) {
+			if(slot.childCount <= 0)
+				return null;
+			return slot.GetChild(0).GetComponent<IBranch>();
 		}
 
 		public Transform[] GetSlots() {

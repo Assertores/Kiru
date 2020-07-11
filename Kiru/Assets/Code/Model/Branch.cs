@@ -91,9 +91,7 @@ namespace Kiru {
 			if(branch != null) {
 				return branch.Grow(factory);
 			}
-
-			slot = GetGrothValidator().Validate(this);
-			if(slot == null)
+			if(!GetGrothValidator().Validate(this, slot))
 				return false;
 
 			var newBranch = factory.CreateBranch();

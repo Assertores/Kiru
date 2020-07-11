@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	[CreateAssetMenu(fileName = "MockCutValidator", menuName = "Game/ICutValidate/MockCutValidator")]
-	public class MockCutValidator : ScriptableObject, ICutValidate {
+	public class MockCutValidator : MonoBehaviour, ICutValidate {
 		public bool Validate(IBranch element) {
 			return element.GetChildren().Length <= 0;
 		}
