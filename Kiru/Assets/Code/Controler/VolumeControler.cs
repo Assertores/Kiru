@@ -13,6 +13,7 @@ namespace Kiru {
 		[SerializeField] Slider _sfx = null;
 
 		private void Awake() {
+			/* not shure why it dosn't work
 			float tmp;
 
 			if(_master) {
@@ -26,7 +27,7 @@ namespace Kiru {
 			if(_sfx) {
 				_mixer.GetFloat("SFX", out tmp);
 				_sfx.value = Mathf.InverseLerp(-30, 20, tmp);
-			}
+			}*/
 		}
 
 		public void ChangeMasterVolume(float value) {
