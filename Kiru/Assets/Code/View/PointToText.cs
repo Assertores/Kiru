@@ -10,6 +10,7 @@ namespace Kiru {
 
 		void Start() {
 			GameData.s_instance.OnPointsChange += Print;
+			Print();
 		}
 
 		private void OnDestroy() {

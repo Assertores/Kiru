@@ -21,6 +21,7 @@ namespace Kiru {
 			_titles.Add(new Title { name = _highestTitle, point = int.MaxValue });
 
 			GameData.s_instance.OnPointsChange += Print;
+			Print();
 		}
 
 		private void OnDestroy() {

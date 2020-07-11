@@ -19,6 +19,7 @@ namespace Kiru {
 			_slider.minValue = 0;
 			_slider.maxValue = _maxCount;
 			GameData.s_instance.OnBranchCountChange += Print;
+			Print();
 		}
 
 		private void OnDestroy() {

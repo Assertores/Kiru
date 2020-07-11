@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 8178511808303097948}
   - component: {fileID: 7037723128480211715}
   - component: {fileID: 5955349775139162513}
+  - component: {fileID: 5400231586203348988}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -1001,6 +1002,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5400231586203348988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676885277899753332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d40ed9accf5f7347a876d9b97f8d6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textField: {fileID: 5955349775139162513}
 --- !u!1 &2679956292173758987
 GameObject:
   m_ObjectHideFlags: 0
