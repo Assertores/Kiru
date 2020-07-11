@@ -6,12 +6,17 @@ namespace Kiru {
 	public class Branch : MonoBehaviour, IBranch {
 
 		[SerializeField] Transform[] _slots;
+		[SerializeField] Animation _animation;
 
 		IBranch _parent = null;
 		ICutValidate _cutValidator = null;
 		IGrothValidate _grothValidator = null;
+		bool _isActive = false;
 
 		public bool Cut() {
+			if(!_isActive)
+				return false;
+
 			if(!GetCutValidator().Validate(this))
 				return false;
 
@@ -76,6 +81,9 @@ namespace Kiru {
 		}
 
 		public bool Grow(IBranchFactory factory) {
+			if(!_isActive)
+				return false;
+
 			var slots = GetSlots();
 			var slot = slots[Random.Range(0, slots.Length)];
 			var branch = GetBranchFromSlot(slot);
@@ -88,14 +96,27 @@ namespace Kiru {
 			if(slot == null)
 				return false;
 
-			var newBranch = factory.CreateBranch().GetTransform();
+			var newBranch = factory.CreateBranch();
+			var nBTrans = newBranch.GetTransform();
 
-			newBranch.parent = slot;
-			newBranch.localPosition = Vector3.zero;
-			newBranch.localRotation = Quaternion.identity;
+			nBTrans.parent = slot;
+			nBTrans.localPosition = Vector3.zero;
+			nBTrans.localRotation = Quaternion.identity;
 
+			newBranch.Init();
 
 			return true;
+		}
+
+		public void Init() {
+			_isActive = false;
+			_animation.Play();
+			StartCoroutine(IEDelayed(_animation.clip.length, () => { _isActive = true; }));
+		}
+
+		IEnumerator IEDelayed(float time, System.Action lamda) {
+			yield return new WaitForSeconds(time);
+			lamda();
 		}
 	}
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8735618030611812121}
   - component: {fileID: 8373807393747627867}
   - component: {fileID: 8611671614730308176}
+  - component: {fileID: 862258231939627487}
   m_Layer: 0
   m_Name: Branch
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   - {fileID: 8789980019307186346}
   - {fileID: 490077414045594697}
   - {fileID: 7310521585339572183}
+  _animation: {fileID: 862258231939627487}
 --- !u!136 &8611671614730308176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -62,10 +64,26 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.25
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 1, z: -0.00000008940697}
+--- !u!111 &862258231939627487
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148124009407640018}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 4a512ff3d9bc5664fa3d779803b4a256, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 4a512ff3d9bc5664fa3d779803b4a256, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5432636726198402724
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,8 +200,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8811832693575511486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.975, z: 0}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 8735618030611812121}
   m_RootOrder: 3
@@ -210,6 +228,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

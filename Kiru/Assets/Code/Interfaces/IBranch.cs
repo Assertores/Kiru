@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Kiru {
 	public interface IBranch {
+
+		void Init();
+
 		Transform GetTransform();
 
 		Transform[] GetSlots();

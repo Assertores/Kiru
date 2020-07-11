@@ -80,23 +80,31 @@ namespace Kiru {
 			var childs = GetChildren();
 
 			Transform slot = null;
-			while((slot = GetGrothValidator().Validate(this)) == null) {
+			for(int i = 0; i < 100 && (slot = GetGrothValidator().Validate(this)) == null; i++) {
 				if(childs.Length > 0 && childs[Random.Range(0, childs.Length)].Grow(factory))
 					return true;
 			}
+			if(slot == null) {
+				return false;
+			}
 
-			var newBranch = factory.CreateBranch().GetTransform();
+			var newBranch = factory.CreateBranch();
+			var nBTrans = newBranch.GetTransform();
 
-			newBranch.parent = slot;
-			newBranch.localPosition = Vector3.zero;
-			newBranch.localRotation = Quaternion.identity;
+			nBTrans.parent = slot;
+			nBTrans.localPosition = Vector3.zero;
+			nBTrans.localRotation = Quaternion.identity;
 
+			newBranch.Init();
 
 			return true;
 		}
 
 		public Transform[] GetSlots() {
 			return _slots;
+		}
+
+		public void Init() {
 		}
 	}
 }
