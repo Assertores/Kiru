@@ -16,6 +16,7 @@ namespace Kiru {
 				return false;
 
 			//TODO: cut stuff
+			Destroy(gameObject);
 
 			_parent = null;
 
