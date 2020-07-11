@@ -9,8 +9,11 @@ namespace Kiru {
 		private IGrothValidate _grothValidator = null;
 		private ICutValidate _cutValidator = null;
 		private bool _isCut = false;
+		private int _depth = 0;
 
-		public virtual void Init() { }
+		public virtual void Init(int depth) {
+			_depth = depth;
+		}
 
 		public abstract Transform[] GetSlots();
 
@@ -38,6 +41,10 @@ namespace Kiru {
 			return transform;
 		}
 
+		public int GetDepth() {
+			return _depth;
+		}
+
 		public IBranch[] GetChildren() {
 			List<IBranch> ret = new List<IBranch>();
 
@@ -59,7 +66,11 @@ namespace Kiru {
 			if(_parent != null)
 				return _parent;
 
-			_parent = transform.parent.parent.GetComponent<IBranch>();
+			Transform current = transform;
+			do {
+				current = current.parent;
+				_parent = current.GetComponent<IBranch>();
+			} while(current != transform.root && _parent == null);
 
 			return _parent;
 		}

@@ -37,19 +37,20 @@ namespace Kiru {
 			if(!GetGrothValidator().Validate(this, slot))
 				return false;
 
-			var newBranch = factory.CreateBranch();
+			var newBranch = factory.CreateBranch(this);
 			var nBTrans = newBranch.GetTransform();
 
 			nBTrans.parent = slot;
 			nBTrans.localPosition = Vector3.zero;
 			nBTrans.localRotation = Quaternion.identity;
 
-			newBranch.Init();
+			newBranch.Init(GetDepth() + 1);
 
 			return true;
 		}
 
-		public override void Init() {
+		public override void Init(int depth) {
+			base.Init(depth);
 			if(_growAnimation == null) {
 				_isActive = true;
 				return;

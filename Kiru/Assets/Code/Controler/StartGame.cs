@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Kiru {
 	public class StartGame : ICommand {
 
-		[SerializeField] SwitchMenus _menuSwitcher;
+		[SerializeField] SwitchMenus _menuSwitcher = null;
 
 		public override void Execute() {
 			GameData.s_instance.MyReset();

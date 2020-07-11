@@ -74,14 +74,14 @@ namespace Kiru {
 				if(!GetGrothValidator().Validate(this, slot))
 					continue;
 
-				var newBranch = factory.CreateBranch();
+				var newBranch = factory.CreateBranch(this);
 				var nBTrans = newBranch.GetTransform();
 
 				nBTrans.parent = slot;
 				nBTrans.localPosition = Vector3.zero;
 				nBTrans.localRotation = Quaternion.identity;
 
-				newBranch.Init();
+				newBranch.Init(1);
 
 				hasGrowen = true;
 			}

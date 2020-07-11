@@ -5,8 +5,8 @@ using UnityEngine;
 namespace Kiru {
 	public class SwitchMenus : ICommand {
 
-		[SerializeField] GameObject _origin;
-		[SerializeField] GameObject _target;
+		[SerializeField] GameObject _origin = null;
+		[SerializeField] GameObject _target = null;
 
 		public override void Execute() {
 			_origin.SetActive(false);

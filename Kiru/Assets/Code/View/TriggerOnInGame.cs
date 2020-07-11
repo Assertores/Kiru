@@ -5,8 +5,8 @@ using UnityEngine;
 namespace Kiru {
 	public class TriggerOnInGame : MonoBehaviour {
 
-		[SerializeField] ICommand _command;
-		[SerializeField] bool _inGame;
+		[SerializeField] ICommand _command = null;
+		[SerializeField] bool _inGame = true;
 
 		private void OnEnable() {
 			GameData.s_instance.OnIsAliveChange += Trigger;
