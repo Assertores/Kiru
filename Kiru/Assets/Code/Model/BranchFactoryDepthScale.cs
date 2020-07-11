@@ -16,7 +16,6 @@ namespace Kiru {
 				Destroy(element);
 			}
 
-			Debug.Log(origin.GetDepth());
 			float scale = _scaleCurve.Evaluate(origin.GetDepth());
 			element.transform.localScale = new Vector3(scale, scale, scale);
 
