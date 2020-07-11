@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public interface IGrothValidate {
+	public abstract class IGrothValidate : MonoBehaviour {
 
-		bool Validate(IBranch element, Transform slot);
+		public abstract bool Validate(IBranch element, Transform slot);
 	}
 }

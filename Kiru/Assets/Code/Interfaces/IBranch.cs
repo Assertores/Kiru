@@ -3,25 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public interface IBranch {
+	public abstract class IBranch : MonoBehaviour {
 
-		void Init();
+		private IBranch _parent;
+		private IGrothValidate _grothValidator;
+		private ICutValidate _cutValidator;
 
-		Transform GetTransform();
+		public virtual void Init() { }
 
-		Transform[] GetSlots();
-
-		IBranch[] GetChildren();
-
-		IBranch GetParent();
-
-		IGrothValidate GetGrothValidator();
-
-		ICutValidate GetCutValidator();
+		public abstract Transform[] GetSlots();
 
 		// may neet do work in bredfirstsearch
-		bool Grow(IBranchFactory factory);
+		public abstract bool Grow(IBranchFactory factory);
 
-		bool Cut();
+		public abstract bool Cut();
+
+		public Transform GetTransform() {
+			return transform;
+		}
+
+		public IBranch[] GetChildren() {
+			List<IBranch> ret = new List<IBranch>();
+
+			foreach(Transform it in GetSlots()) {
+				if(it.childCount <= 0)
+					continue;
+
+				IBranch element = it.GetChild(0).GetComponent<IBranch>();
+
+				ret.Add(element);
+			}
+
+			return ret.ToArray();
+		}
+
+		public IBranch GetParent() {
+			if(_parent != null)
+				return _parent;
+
+			_parent = transform.parent.parent.GetComponent<IBranch>();
+
+			return _parent;
+		}
+
+		public virtual IGrothValidate GetGrothValidator() {
+			if(_grothValidator == null)
+				_grothValidator = GetParent().GetGrothValidator();
+
+			return _grothValidator;
+		}
+
+		public virtual ICutValidate GetCutValidator() {
+			if(_cutValidator == null)
+				_cutValidator = GetParent().GetCutValidator();
+
+			return _cutValidator;
+		}
+
+		protected IEnumerator IEDelayed(float time, System.Action lamda) {
+			yield return new WaitForSeconds(time);
+			lamda();
+		}
+
+		protected IBranch GetBranchFromSlot(Transform slot) {
+			if(slot.childCount <= 0)
+				return null;
+			return slot.GetChild(0).GetComponent<IBranch>();
+		}
+
+		protected Transform GetRandomSlot() {
+			var slots = GetSlots();
+			return slots[Random.Range(0, slots.Length)];
+		}
 	}
 }

@@ -518,10 +518,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1171130279}
   - component: {fileID: 1171130278}
+  - component: {fileID: 1171130283}
   - component: {fileID: 1171130282}
   - component: {fileID: 1171130281}
   - component: {fileID: 1171130280}
-  - component: {fileID: 1171130283}
   m_Layer: 0
   m_Name: trunk
   m_TagString: Untagged
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f966013f81f6644b2e86e9b2ddc545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cutValidatorObj: {fileID: 1171130282}
-  _grothValidatorObj: {fileID: 1171130280}
+  _cutValidator: {fileID: 1171130282}
+  _grothValidator: {fileID: 1171130280}
   _factoryObj: {fileID: 11400000, guid: ec060e90f896d2d40b54ec26896ff4f2, type: 2}
   _game: {fileID: 1171130283}
   _slots:

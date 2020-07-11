@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kiru {
-	public class GameGrowValidator : MonoBehaviour, IGrothValidate {
+	public class GameGrowValidator : IGrothValidate {
 
 		[SerializeField] Transform _sphere;
 		[SerializeField] float _radius;
 		[SerializeField] GameData _game;
 
-		public bool Validate(IBranch element, Transform slot) {
+		public override bool Validate(IBranch element, Transform slot) {
 			if(Vector3.Distance(slot.position, _sphere.position) > _radius) {
 				_game.isAlive = false;
 				return false;
