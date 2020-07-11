@@ -6,6 +6,15 @@ namespace Kiru {
 
 	[CreateAssetMenu(fileName = "IBranchFactory", menuName = "Game/IBranchFactory/IBranchFactory")]
 	public abstract class IBranchFactory : ScriptableObject {
-		public abstract IBranch CreateBranch();
+
+		public IBranch CreateBranch() {
+			var element = DoCreateBranch();
+			if(element) {
+				GameData.s_instance.branchCount++;
+			}
+			return element;
+		}
+
+		public abstract IBranch DoCreateBranch();
 	}
 }

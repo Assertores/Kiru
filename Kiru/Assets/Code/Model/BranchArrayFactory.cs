@@ -8,7 +8,7 @@ namespace Kiru {
 
 		[SerializeField] GameObject[] _branches = null;
 
-		public override IBranch CreateBranch() {
+		public override IBranch DoCreateBranch() {
 			GameObject element = Instantiate(_branches[Random.Range(0, _branches.Length - 1)]);
 			IBranch ret = element.GetComponent<IBranch>();
 			if(ret == null) {

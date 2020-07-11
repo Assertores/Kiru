@@ -10,7 +10,6 @@ namespace Kiru {
 		[SerializeField] IGrothValidate __grothValidator = null;
 		[SerializeField] ScriptableObject _factoryObj = null;
 		IBranchFactory _factory = null;
-		[SerializeField] GameData _game = null;
 
 		[SerializeField] Transform[] _slots = null;
 		[SerializeField] AnimationCurve _growCurve = null;
@@ -22,7 +21,7 @@ namespace Kiru {
 		}
 
 		private void FixedUpdate() {
-			if(!_game.isAlive)
+			if(!GameData.s_instance.isAlive)
 				return;
 
 			_integratedGrowValue += _growCurve.Evaluate(Time.timeSinceLevelLoad) * Time.fixedDeltaTime;

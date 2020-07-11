@@ -23,8 +23,9 @@ namespace Kiru {
 			if(!DoCut())
 				return false;
 			_isCut = true;
-
 			_parent = null;
+
+			GameData.s_instance.branchCount--;
 
 			return true;
 		}
