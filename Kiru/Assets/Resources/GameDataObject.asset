@@ -29,6 +29,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ce996509af794b1438d4239b18e6d364, type: 3}
     - {fileID: 8300000, guid: 084979c6d2cda7a4ca66dff3f8f71b0d, type: 3}
     - {fileID: 8300000, guid: cf360652fa14e9f43a117378d8f8f614, type: 3}
+    - {fileID: 8300000, guid: 1a9c420859f333141aaa55cd172bc04e, type: 3}
+    - {fileID: 8300000, guid: 8a08cfe27407487469025c335ae9595c, type: 3}
   cutSFX:
   - name: Normal
     clips: []
@@ -37,6 +39,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6dabda516eff602468051314d8e19973, type: 3}
     - {fileID: 8300000, guid: c29b076e2a933e2409841ea7305b1fc5, type: 3}
     - {fileID: 8300000, guid: a8078c572265e884182e5c8df8f00703, type: 3}
+    - {fileID: 8300000, guid: d24e140d1f95aa14c981c229183f1d7e, type: 3}
+    - {fileID: 8300000, guid: 4caab607e13fede45a1ce104a3cde2d0, type: 3}
+    - {fileID: 8300000, guid: 2fb89a327eb41d440ab968ed50c2aec0, type: 3}
+    - {fileID: 8300000, guid: fb0871bd146bded459d74452b9c5f6b2, type: 3}
   backgroundSFX:
   - name: Normal
     clips: []
@@ -45,6 +51,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: dd478d73f6c599e47b820eb8ac34e579, type: 3}
     - {fileID: 8300000, guid: 634fd830aae407e4586a401ae95c68e3, type: 3}
     - {fileID: 8300000, guid: 32d838dc1e627a845ae905d221983a15, type: 3}
+    - {fileID: 8300000, guid: b56b42ae4e601bb4298dc41fcfed568f, type: 3}
+    - {fileID: 8300000, guid: 839ac8a1bd44d3947844d7ab2b42ec52, type: 3}
   music:
   - name: Normal
     clips: []
