@@ -21,3 +21,33 @@ MonoBehaviour:
   - name: Senior
     point: 30
   lowestTitle: Intern
+  growSFX:
+  - name: Normal
+    clips: []
+  - name: Andi
+    clips:
+    - {fileID: 8300000, guid: ce996509af794b1438d4239b18e6d364, type: 3}
+    - {fileID: 8300000, guid: 084979c6d2cda7a4ca66dff3f8f71b0d, type: 3}
+    - {fileID: 8300000, guid: cf360652fa14e9f43a117378d8f8f614, type: 3}
+  cutSFX:
+  - name: Normal
+    clips: []
+  - name: Andi
+    clips:
+    - {fileID: 8300000, guid: 6dabda516eff602468051314d8e19973, type: 3}
+    - {fileID: 8300000, guid: c29b076e2a933e2409841ea7305b1fc5, type: 3}
+    - {fileID: 8300000, guid: a8078c572265e884182e5c8df8f00703, type: 3}
+  backgroundSFX:
+  - name: Normal
+    clips: []
+  - name: Andi
+    clips:
+    - {fileID: 8300000, guid: dd478d73f6c599e47b820eb8ac34e579, type: 3}
+    - {fileID: 8300000, guid: 634fd830aae407e4586a401ae95c68e3, type: 3}
+    - {fileID: 8300000, guid: 32d838dc1e627a845ae905d221983a15, type: 3}
+  music:
+  - name: Normal
+    clips: []
+  - name: Andi
+    clips:
+    - {fileID: 8300000, guid: cc1abc5da6ba3da4dafbfe7413c3f008, type: 3}

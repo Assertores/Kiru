@@ -11,7 +11,7 @@ namespace Kiru {
 			if(!GameData.s_instance.isAlive)
 				return;
 
-			GameData.s_instance.points += _branchkountToPoints.Evaluate((float)GameData.s_instance.branchCount/GameData.s_instance.maxBranchCount) * Time.fixedDeltaTime;
+			GameData.s_instance.points += _branchkountToPoints.Evaluate((float)GameData.s_instance.branchCount/GameData.s_instance.data.maxBranchCount) * Time.fixedDeltaTime;
 		}
 	}
 }

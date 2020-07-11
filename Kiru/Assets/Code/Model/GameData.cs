@@ -18,6 +18,20 @@ namespace Kiru {
 			}
 		}
 
+		public System.Action OnAndimodeChange = null;
+		bool _andimode = true;
+		public bool andimode {
+			get {
+				return _andimode;
+			}
+			set {
+				if(_andimode == value)
+					return;
+				_andimode = value;
+				OnAndimodeChange?.Invoke();
+			}
+		}
+
 		public System.Action OnBranchCountChange = null;
 		int _branchCount = 0;
 		public int branchCount {
@@ -50,17 +64,11 @@ namespace Kiru {
 			}
 		}
 
-		public float maxBranchCount { get; private set; }
-		public title[] titles { get; private set; }
+		public GameDataObject data { get; private set; }
 
 		protected override void OnMyAwake() {
 			var values = Resources.Load<GameDataObject>("GameDataObject");
-			var tmpTitles = new List<title>(values.titles.ToArray()); // make copy
-			tmpTitles.Sort((title lhs, title rhs) => { return lhs.point.CompareTo(rhs.point); });
-			tmpTitles.Insert(0, new title { name = values.lowestTitle, point = 0 });
-
-			maxBranchCount = values.maxBranchCount;
-			titles = tmpTitles.ToArray();
+			data = Instantiate(values);
 
 			MyReset();
 		}

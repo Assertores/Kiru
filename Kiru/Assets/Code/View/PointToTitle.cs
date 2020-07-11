@@ -7,7 +7,7 @@ namespace Kiru {
 	public class PointToTitle : MonoBehaviour {
 
 		[SerializeField] TextMeshProUGUI _textField = null;
-		int currentTitleIndex = 0;
+		//int currentTitleIndex = 0;
 
 		void Start() {
 			GameData.s_instance.OnPointsChange += Print;
@@ -22,16 +22,16 @@ namespace Kiru {
 		}
 
 		void Print() {
-			if(GameData.s_instance.titles[GameData.s_instance.titles.Length-1].point <= GameData.s_instance.points) {
-				currentTitleIndex = GameData.s_instance.titles.Length - 1;
+			int currentTitleIndex = 0;
+			if(GameData.s_instance.data.titles[GameData.s_instance.data.titles.Count-1].point <= GameData.s_instance.points) {
+				currentTitleIndex = GameData.s_instance.data.titles.Count - 1;
 			} else {
-				while(currentTitleIndex - 1 < GameData.s_instance.titles.Length && GameData.s_instance.titles[currentTitleIndex + 1].point < GameData.s_instance.points) {
+				while(currentTitleIndex - 1 < GameData.s_instance.data.titles.Count && GameData.s_instance.data.titles[currentTitleIndex + 1].point < GameData.s_instance.points) {
 					currentTitleIndex++;
 				}
 			}
-			
 
-			_textField.text = GameData.s_instance.titles[currentTitleIndex].name;
+			_textField.text = GameData.s_instance.data.titles[currentTitleIndex].name;
 		}
 	}
 }

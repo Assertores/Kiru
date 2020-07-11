@@ -65,14 +65,14 @@ namespace Kiru {
 				it.Remove();
 			}
 
-			FallOf();
+			FallOf(false);
 		}
 
-		void FallOf() {
+		void FallOf(bool withAnimation = true) {
 			transform.parent = transform.root;
 			var rb = gameObject.AddComponent<Rigidbody>();
 
-			if(_cutAnimatin) {
+			if(withAnimation && _cutAnimatin) {
 				_cutAnimatin.Play();
 			}
 
