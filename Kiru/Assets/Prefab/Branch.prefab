@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 490077414045594697}
   - {fileID: 7310521585339572183}
   _growAnimation: {fileID: 862258231939627487}
-  _cutAnimatin: {fileID: 0}
+  _cutAnimatin: {fileID: 650516842751390332}
   _cutLiveTime: 10
 --- !u!136 &8611671614730308176
 CapsuleCollider:
@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8336643851182473868}
   - component: {fileID: 650516842751390332}
+  - component: {fileID: 8610563478735639669}
   - component: {fileID: 1491372841897845824}
   m_Layer: 0
   m_Name: CutHandler
@@ -128,12 +129,30 @@ Animation:
   m_GameObject: {fileID: 616131008009487084}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: bf9adf4ec65b70140a13d2e63b07d97a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: bf9adf4ec65b70140a13d2e63b07d97a, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8610563478735639669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616131008009487084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645825a10d1653e469c45fc6c42d8afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1491372841897845824}
+  _clips:
+  - {fileID: 8300000, guid: 6dabda516eff602468051314d8e19973, type: 3}
+  - {fileID: 8300000, guid: c29b076e2a933e2409841ea7305b1fc5, type: 3}
+  - {fileID: 8300000, guid: a8078c572265e884182e5c8df8f00703, type: 3}
 --- !u!82 &1491372841897845824
 AudioSource:
   m_ObjectHideFlags: 0
@@ -145,7 +164,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
