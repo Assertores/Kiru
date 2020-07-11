@@ -6,20 +6,10 @@ using TMPro;
 namespace Kiru {
 	public class PointToTitle : MonoBehaviour {
 
-		[SerializeField] TextMeshProUGUI[] _textField = null;
-		[System.Serializable]
-		struct Title {
-			public string name;
-			public float point;
-		}
-		[SerializeField] List<Title> _titles = null;
-		[SerializeField] string _highestTitle = "";
+		[SerializeField] TextMeshProUGUI _textField = null;
 		int currentTitleIndex = 0;
 
 		void Start() {
-			_titles.Sort((Title lhs, Title rhs) => { return lhs.point.CompareTo(rhs.point); });
-			_titles.Add(new Title { name = _highestTitle, point = int.MaxValue });
-
 			GameData.s_instance.OnPointsChange += Print;
 			Print();
 		}
@@ -32,13 +22,16 @@ namespace Kiru {
 		}
 
 		void Print() {
-			while(_titles[currentTitleIndex].point < GameData.s_instance.points) {
-				currentTitleIndex++;
+			if(GameData.s_instance.titles[GameData.s_instance.titles.Length-1].point <= GameData.s_instance.points) {
+				currentTitleIndex = GameData.s_instance.titles.Length - 1;
+			} else {
+				while(currentTitleIndex - 1 < GameData.s_instance.titles.Length && GameData.s_instance.titles[currentTitleIndex + 1].point < GameData.s_instance.points) {
+					currentTitleIndex++;
+				}
 			}
+			
 
-			foreach(var it in _textField) {
-				it.text = _titles[currentTitleIndex].name;
-			}
+			_textField.text = GameData.s_instance.titles[currentTitleIndex].name;
 		}
 	}
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4342909213933667466}
   - component: {fileID: 7891474045199143710}
   - component: {fileID: 5114329926249746041}
+  - component: {fileID: 5114929741478856304}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -156,6 +157,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5114929741478856304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238213971881701364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12095274ff8d75d44adb13aa12f916fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textField: {fileID: 5114329926249746041}
 --- !u!1 &256838069620497066
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,17 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12095274ff8d75d44adb13aa12f916fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textField:
-  - {fileID: 8084035365035738271}
-  - {fileID: 5114329926249746041}
-  _titles:
-  - name: Junior
-    point: 5
-  - name: Intermediat
-    point: 15
-  - name: Senior
-    point: 100
-  _highestTitle: Master
+  _textField: {fileID: 8084035365035738271}
 --- !u!1 &1660940724715986970
 GameObject:
   m_ObjectHideFlags: 0

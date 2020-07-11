@@ -50,7 +50,23 @@ namespace Kiru {
 			}
 		}
 
+		public float maxBranchCount { get; private set; }
+		public title[] titles { get; private set; }
+
+		protected override void OnMyAwake() {
+			var values = Resources.Load<GameDataObject>("GameDataObject");
+			var tmpTitles = new List<title>(values.titles.ToArray()); // make copy
+			tmpTitles.Sort((title lhs, title rhs) => { return lhs.point.CompareTo(rhs.point); });
+			tmpTitles.Insert(0, new title { name = values.lowestTitle, point = 0 });
+
+			maxBranchCount = values.maxBranchCount;
+			titles = tmpTitles.ToArray();
+
+			MyReset();
+		}
+
 		public void MyReset() {
+
 			branchCount = 0;
 			points = 0;
 		}

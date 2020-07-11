@@ -6,13 +6,12 @@ namespace Kiru {
 	public class PointEvaluator : MonoBehaviour {
 
 		[SerializeField] AnimationCurve _branchkountToPoints = null;
-		[SerializeField] int _maxBranchCount = 50;
 
 		void FixedUpdate() {
 			if(!GameData.s_instance.isAlive)
 				return;
 
-			GameData.s_instance.points += _branchkountToPoints.Evaluate((float)GameData.s_instance.branchCount/_maxBranchCount) * Time.fixedDeltaTime;
+			GameData.s_instance.points += _branchkountToPoints.Evaluate((float)GameData.s_instance.branchCount/GameData.s_instance.maxBranchCount) * Time.fixedDeltaTime;
 		}
 	}
 }
