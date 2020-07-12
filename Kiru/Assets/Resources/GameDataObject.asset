@@ -101,7 +101,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 839ac8a1bd44d3947844d7ab2b42ec52, type: 3}
   music:
   - name: Normal
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: cc1abc5da6ba3da4dafbfe7413c3f008, type: 3}
   - name: Andi
     clips:
     - {fileID: 8300000, guid: cc1abc5da6ba3da4dafbfe7413c3f008, type: 3}

@@ -33,7 +33,7 @@ namespace Kiru {
 		}
 
 		public System.Action OnAndimodeChange = null;
-		bool _andimode = true;
+		bool _andimode = false;
 		public bool andimode {
 			get {
 				return _andimode;
