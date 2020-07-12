@@ -18,6 +18,20 @@ namespace Kiru {
 			}
 		}
 
+		public System.Action OnIsInTutorial = null;
+		bool _isInTutorial = true;
+		public bool isInTutorial {
+			get {
+				return _isInTutorial;
+			}
+			set {
+				if(_isInTutorial == value)
+					return;
+				_isInTutorial = value;
+				OnIsInTutorial?.Invoke();
+			}
+		}
+
 		public System.Action OnAndimodeChange = null;
 		bool _andimode = true;
 		public bool andimode {

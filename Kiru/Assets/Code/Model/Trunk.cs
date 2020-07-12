@@ -31,6 +31,8 @@ namespace Kiru {
 		private void FixedUpdate() {
 			if(!GameData.s_instance.isAlive)
 				return;
+			if(GameData.s_instance.isInTutorial)
+				return;
 
 			_integratedGrowValue += _growCurve.Evaluate(Time.timeSinceLevelLoad - _startTime) * Time.fixedDeltaTime;
 			var val = Mathf.RoundToInt(_integratedGrowValue) - _currentGrowCount;
