@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94199ba896282814a9d9fc88caa031fb, type: 3}
-  m_Name: BranchArrayFactory
-  m_EditorClassIdentifier: 
-  _branches:
-  - {fileID: 148124009407640018, guid: d14a2aa53059c3247a2c2526990c1f10, type: 3}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9c7b2b05ceaec0d1f5405fab81766a33c557e4ba4e9d6329a148c9f35949231b
+size 502
