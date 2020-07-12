@@ -12,15 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61201b61e1bd5e542ab473320c4c7169, type: 3}
   m_Name: GameDataObject
   m_EditorClassIdentifier: Assembly-CSharp:Kiru:GameDataObject
-  maxBranchCount: 50
+  maxBranchCount: 60
   titles:
-  - name: Junior
-    point: 5
-  - name: Regular
-    point: 15
-  - name: Senior
-    point: 30
-  lowestTitle: Intern
+  - name: Bonsai Lover
+    point: 0
+  - name: Cherrypicker
+    point: 600
+  - name: Zenovice
+    point: 800
+  - name: Branching Master
+    point: 1000
+  - name: Bonsamurai
+    point: 1200
+  - name: Cutiger
+    point: 1400
+  - name: Kiru Guru
+    point: 1600
+  - name: Scissors Bender
+    point: 1800
+  - name: Legendary Dragon
+    point: 2000
+  - name: God
+    point: 2500
+  lowestTitle: Bonsai Lover
   growSFX:
   - name: Normal
     clips: []
