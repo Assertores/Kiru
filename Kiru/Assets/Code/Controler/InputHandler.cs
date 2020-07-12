@@ -13,6 +13,11 @@ namespace Kiru {
 		[SerializeField] float _dragDistanceThreashhold = 10;
 
 		Vector2 startPos = Vector2.zero;
+		float diagonal = 0;
+
+		private void Start() {
+			diagonal = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight).magnitude;
+		}
 
 		void Update() {
 			PC();
@@ -40,7 +45,7 @@ namespace Kiru {
 				}
 			}
 
-			OnDrage?.Invoke((touch.deltaPosition.x / Camera.main.pixelWidth) * 2, touch.deltaTime);
+			OnDrage?.Invoke((touch.deltaPosition.x / -diagonal) * 25, touch.deltaTime);
 		}
 	}
 }
